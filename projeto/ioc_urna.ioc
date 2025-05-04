@@ -1,0 +1,18 @@
+TOP (
+  (IOPIN candidato.0);
+  (IOPIN reset.0);
+	(IOPIN reg_a(4).0);
+	(IOPIN reg_a(3).0);
+	(IOPIN reg_a(2).0);
+	(IOPIN reg_a(1).0);
+	(IOPIN reg_a(0).0);
+)
+
+BOTTOM (
+  (IOPIN votar.0);
+	(IOPIN reg_b(4).0);
+	(IOPIN reg_b(3).0);
+	(IOPIN reg_b(2).0);
+	(IOPIN reg_b(1).0);
+	(IOPIN reg_b(0).0);
+)

@@ -1,0 +1,5 @@
+east ( p_vddick0 p_vddeck0 )
+west ( p_vssick0 p_vsseck0 )
+north (p_candidato p_reset p_reg_a4 p_reg_a3 p_reg_a2 p_reg_a1 p_reg_a0)
+south (p_votar p_reg_b4 p_reg_b3 p_reg_b2 p_reg_b1 p_reg_b0) 
+width ( vss 120 vdd 120 )
