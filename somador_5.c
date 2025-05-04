@@ -36,45 +36,50 @@ int main() {
     GENLIB_LOCON("vdd", IN, "vdd");
     GENLIB_LOCON("vss", IN, "vss");
     
-    // Variáveis para os carries internos
-    char carry[6]; // carry[0] = Cin, carry[5] = Cout
+    // Variáveis para os carries internos (como strings nomeadas)
+    char carry0[10] = "carry0";
+    char carry1[10] = "carry1";
+    char carry2[10] = "carry2";
+    char carry3[10] = "carry3";
+    char carry4[10] = "carry4";
+    char carry5[10] = "carry5";
     
     // Conectar o carry inicial
-    GENLIB_CONNECT(carry[0], "Cin");
+    GENLIB_CONNECT("Cin", carry0);  // Conexão correta: de "Cin" para carry0
     
     // Instanciar somadores completos de 1 bit para cada estágio
     // Bit 0 (LSB)
     GENLIB_LOINS("fulladder", "fa0", 
-                "A0", "B0", carry[0], 
-                "S0", carry[1],
+                "A0", "B0", carry0, 
+                "S0", carry1,
                 "vdd", "vss", NULL);
     
     // Bit 1
     GENLIB_LOINS("fulladder", "fa1", 
-                "A1", "B1", carry[1], 
-                "S1", carry[2],
+                "A1", "B1", carry1, 
+                "S1", carry2,
                 "vdd", "vss", NULL);
     
     // Bit 2
     GENLIB_LOINS("fulladder", "fa2", 
-                "A2", "B2", carry[2], 
-                "S2", carry[3],
+                "A2", "B2", carry2, 
+                "S2", carry3,
                 "vdd", "vss", NULL);
     
     // Bit 3
     GENLIB_LOINS("fulladder", "fa3", 
-                "A3", "B3", carry[3], 
-                "S3", carry[4],
+                "A3", "B3", carry3, 
+                "S3", carry4,
                 "vdd", "vss", NULL);
     
     // Bit 4 (MSB)
     GENLIB_LOINS("fulladder", "fa4", 
-                "A4", "B4", carry[4], 
-                "S4", carry[5],
+                "A4", "B4", carry4, 
+                "S4", carry5,
                 "vdd", "vss", NULL);
     
     // Conectar o carry final à saída Cout
-    GENLIB_CONNECT("Cout", carry[5]);
+    GENLIB_CONNECT(carry5, "Cout");  // Conexão correta: de carry5 para "Cout"
     
     // Salvar a figura lógica
     GENLIB_SAVE_LOFIG();
